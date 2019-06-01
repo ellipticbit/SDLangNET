@@ -8,14 +8,13 @@ Test Deployment:
   tags:
     - windows
     - dotnet
-    - nuget
 
   except:
     - master
 
   script:
     - "cd .\\src"
-    - "nuget restore SDL.csproj"
+    - "dotnet restore SDL.csproj"
     - "powershell.exe -file \".\\ReplaceVersion.ps1\""
 #    - "powershell.exe -file \".\\SignBuild.ps1\" 1" -- Requires --no-build
     - "dotnet pack -c Debug -o .\\"
@@ -24,14 +23,13 @@ Production Deployment:
   tags:
     - windows
     - dotnet
-    - nuget
 
   only:
     - master
 
   script:
     - "cd .\\src"
-    - "nuget restore SDL.csproj"
+    - "dotnet restore SDL.csproj"
     - "powershell.exe -file \".\\ReplaceVersion.ps1\""
     - "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\MSBuild\\15.0\\Bin\\msbuild.exe\" SDL.csproj /p:Configuration=\"Release\" /p:BuildProjectReferences=true"
 #    - "powershell.exe -file \".\\SignBuild.ps1\" 0"
