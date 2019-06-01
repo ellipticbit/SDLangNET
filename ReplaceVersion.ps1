@@ -9,11 +9,7 @@ Invoke-WebRequest "https://gitlab.com/api/v4/projects/$($env:CI_PROJECT_ID)/vari
 $year = [System.DateTime]::Now.Year
 $month = [System.DateTime]::Now.Month
 $day = [System.DateTime]::Now.Day
-$packageVer = '{0}.{1}{2:00}.{3}' -f $year, $month, $day, $BuildNumber
 $appVer = '{0}.{1}.{2}.{3}' -f $year, $month, $day, $BuildNumber
-
-Invoke-WebRequest "https://gitlab.com/api/v4/projects/$($env:CI_PROJECT_ID)/variables/BUILD_VERSION" -Headers @{"PRIVATE-TOKEN"=$env:CI_API_TOKEN} -Body @{value=$packageVer} -ContentType "application/x-www-form-urlencoded" -Method "PUT" -UseBasicParsing
-Invoke-WebRequest "https://gitlab.com/api/v4/projects/$($env:CI_PROJECT_ID)/variables/PACKAGE_VERSION" -Headers @{"PRIVATE-TOKEN"=$env:CI_API_TOKEN} -Body @{value=$appVer} -ContentType "application/x-www-form-urlencoded" -Method "PUT" -UseBasicParsing
 
 Get-ChildItem -Path .\ -Filter *.csproj -Recurse -File | ForEach-Object {
     [string]$filename = $_.FullName
@@ -21,8 +17,8 @@ Get-ChildItem -Path .\ -Filter *.csproj -Recurse -File | ForEach-Object {
 
     Try
     {
-        $filexml.Project.PropertyGroup.Version = $ver
-        $filexml.Project.PropertyGroup.FileVersion = $ver
+        $filexml.Project.PropertyGroup.Version = $appVer
+        $filexml.Project.PropertyGroup.FileVersion = $appVer
     }
     Catch
     {
@@ -32,7 +28,4 @@ Get-ChildItem -Path .\ -Filter *.csproj -Recurse -File | ForEach-Object {
     $filexml.InnerXml | Out-File $_.FullName -Encoding UTF8
 }
 
-$packageVer | Out-File "VERSION.txt" -Encoding ASCII -NoNewline
-
-Write-Host "Package Version: $($packageVer)"
 Write-Host "Build Version: $($appVer)"
