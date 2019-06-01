@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>EllipticBit.SDLang</AssemblyName>
+    <RootNamespace>EllipticBit.SDLang</RootNamespace>
+    <Authors>EllipticBit LLC</Authors>
+    <Company>EllipticBit, LLC</Company>
+    <Product>EllipticBit.SDLang</Product>
+    <PackageId>EllipticBit.SDLang</PackageId>
+    <Version>0.0.0.0</Version>
+    <FileVersion>0.0.0.0</FileVersion>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <Copyright>Copyright © EllipticBit, LLC. 2019</Copyright>
+    <Description>Cleaned and updated SDLang Library for .NET Core 2.0. Forked from SDL.NET at https://github.com/ikayzo/SDL.NET</Description>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>LGPL-2.1-only</PackageLicenseExpression>
+    <PackageTags>sdlang;sdl;sdl.net;dotnetcore</PackageTags>
+    <NeutralLanguage>en</NeutralLanguage>
+    <LangVersion>latest</LangVersion>
+ </PropertyGroup>
+
+</Project>
