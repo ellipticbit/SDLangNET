@@ -6,10 +6,7 @@ param (
 $BuildNumber = ([int]$env:BUILD_NUMBER) + 1
 Invoke-WebRequest "https://gitlab.com/api/v4/projects/$($env:CI_PROJECT_ID)/variables/BUILD_NUMBER" -Headers @{"PRIVATE-TOKEN"=$env:CI_API_TOKEN} -Body @{value=$BuildNumber} -ContentType "application/x-www-form-urlencoded" -Method "PUT" -UseBasicParsing
 
-$year = [System.DateTime]::Now.Year
-$month = [System.DateTime]::Now.Month
-$day = [System.DateTime]::Now.Day
-$appVer = '{0}.{1}.{2}.{3}' -f $year, $month, $day, $BuildNumber
+$appVer = '1.0.{0}' -f $BuildNumber
 
 Get-ChildItem -Path .\ -Filter *.csproj -Recurse -File | ForEach-Object {
     [string]$filename = $_.FullName

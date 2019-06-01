@@ -1,1 +1,20 @@
-﻿<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>Exe</OutputType><TargetFramework>netcoreapp2.0</TargetFramework><AssemblyName>EllipticBit.SDLang.Tests</AssemblyName><RootNamespace>EllipticBit.SDLang.Tests</RootNamespace><Authors>EllipticBit LLC</Authors><Company>EllipticBit, LLC</Company><Copyright>Copyright © EllipticBit, LLC. 2019</Copyright><Description>Tests for the SDLang Library. Forked from SDL.NET at https://github.com/ikayzo/SDL.NET</Description><PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance><PackageLicenseExpression>LGPL-2.1-only</PackageLicenseExpression><PackageTags>sdlang;sdl;sdl.net;dotnetcore</PackageTags><NeutralLanguage>en</NeutralLanguage><LangVersion>latest</LangVersion></PropertyGroup><ItemGroup><ProjectReference Include="..\src\SDL.csproj" /></ItemGroup></Project>
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp2.0</TargetFramework>
+        <AssemblyName>EllipticBit.SDLang.Tests</AssemblyName>
+        <RootNamespace>EllipticBit.SDLang.Tests</RootNamespace>
+        <Authors>EllipticBit LLC</Authors>
+        <Company>EllipticBit, LLC</Company>
+        <Copyright>Copyright © EllipticBit, LLC. 2019</Copyright>
+        <Description>Tests for the SDLang Library. Forked from SDL.NET at https://github.com/ikayzo/SDL.NET</Description>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <PackageLicenseExpression>LGPL-2.1-only</PackageLicenseExpression>
+        <PackageTags>sdlang;sdl;sdl.net;dotnetcore</PackageTags>
+        <NeutralLanguage>en</NeutralLanguage>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\src\SDL.csproj" />
+    </ItemGroup>
+</Project>
